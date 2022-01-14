@@ -17,8 +17,7 @@ const twitterClient = new TwitterApi({
 const twitter = twitterClient.readWrite;
 
 (async () => {
-  let keep = true;
-  while (keep) {
+  while (true) {
     const categories = Object.keys(Tweets).map((key) => ({
       title: key + " (" + Tweets[key].length + ")",
       value: key,
@@ -38,10 +37,10 @@ const twitter = twitterClient.readWrite;
     const randomTweet = tweets[Math.floor(Math.random() * tweets.length)];
     const tweetToSend = randomTweet.trim();
     console.log(
-      `💭 Tweeting: \n
----
+      `💭 Tweeting ${tweetToSend.length} characters: \n
+---------
 ${tweetToSend}
----
+---------
 `
     );
 
@@ -51,11 +50,16 @@ ${tweetToSend}
       message: "Are you ready to Tweet?",
     });
 
-    if (!confirmResponse.value) {
+    if (confirmResponse.value) {
       try {
-        // await twitter.v2.tweet(trimmedTweet, {});
+        const tweetResult = await twitter.v2.tweet(tweetToSend, {});
+
+        console.log(
+          `✅ Tweeted: https://twitter.com/RPDeshaies/status/${tweetResult.data.id}`
+        );
       } catch (error) {
-        console.log(error, { trimmedTweet: tweetToSend });
+        console.log(`❌ Error: }`, { trimmedTweet: tweetToSend });
+        console.error(error);
       }
     }
   }

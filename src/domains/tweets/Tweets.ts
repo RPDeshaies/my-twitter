@@ -48,11 +48,75 @@ You'll be sure to never miss when I release new games!
 https://www.getrevue.co/profile/fari-rpgs
 `,
   ],
-  ["Charge SRD"]: [],
+  ["Charge SRD"]: [
+    `
+Making your own TTRPG has never been this easy.
+
+Copy and fill-in the gaps from the Charge SRD to make an impactful game with forward momentum.
+
+Download now! https://fari-rpgs.itch.io/charge-srd
+`,
+
+    `
+Featured by Dice Breaker as one of the best tabletop RPG systems to hack into a custom game, Charge is a great way to get started in making your own tabletop RPG.
+
+It takes a new spin on mechanics you're already comfortable with, and it's "fill-in-the-gaps" format makes it super easy to get started in making your own game.
+
+Read for free! https://fari-rpgs.itch.io/charge-srd
+`,
+  ],
   ["HOPES & DREAMS"]: [],
-  ["The Path Of The Wolves"]: [],
-  ["Charge Creation Jam"]: [],
-  ["Charge Extra"]: [
+  ["The Path Of The Wolves"]: [
+    `
+If you love the #Witcher universe, you should check out The Path of the Wolves!
+
+It's hack of Charge RPG that's ready to slay monsters either using silver or steel! 
+
+Available for free! https://fari-rpgs.itch.io/the-path-of-the-wolves
+`,
+    `
+If you like slaying monsters and brewing potions, I've got something for you.
+
+The Path Of The Wolves is a hack of Charge RPG to play within the #Witcher universe.
+
+Check it out, it's free! https://fari-rpgs.itch.io/the-path-of-the-wolves
+`,
+    `
+Silver for monster, steel for men.
+
+Play as a Wolf and slay some monsters in this #Witcher hack of Charge RPG.
+
+Download for free! https://fari-rpgs.itch.io/the-path-of-the-wolves
+`,
+  ],
+  ["Charge Creation Jam"]: [
+    `
+It's TIME TO JAM!
+
+That's right, the #ChargeCreationJam has already started!
+
+You have until March 31st to submit your game/extra!
+
+Let's do it! ⚡⚡ https://itch.io/jam/charge-creation-jam
+`,
+
+    `
+You've just finished your latest project, and are looking for a new project?
+
+Join the #ChargeCreationJam!
+
+You have until March 31st to submit something either powered or compatible with Charge! https://itch.io/jam/charge-creation-jam
+    `,
+
+    `
++40 designers already joined the #ChargeCreationJam!
+
+You too can make a game using the super simple #ChargeSRD
+
+Join the jam now! https://itch.io/jam/charge-creation-jam
+`,
+  ],
+  ["Compatible With Charge"]: [
     `
 The Charge Party Extra by @therabidbanana is a fantastic addition to the core game.
 
@@ -70,4 +134,5 @@ It uses a new and interesting mechanic that acts like an opposed dice pool and h
 https://othelarian.itch.io/charge-extra-threat-level
     `,
   ],
+  ["Powered By Charge"]: [],
 };
