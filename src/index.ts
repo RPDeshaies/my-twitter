@@ -23,18 +23,18 @@ const twitter = twitterClient.readWrite;
       title: key + " (" + Tweets[key].length + ")",
       value: key,
     }));
-    const response = await prompts({
+    const tweetCategoryResponse = await prompts({
       type: "select",
       name: "value",
       choices: categories,
       message: "Which category do you want to Tweet about?",
     });
 
-    if (!response.value) {
+    if (!tweetCategoryResponse.value) {
       return;
     }
 
-    const tweets = Tweets[response.value];
+    const tweets = Tweets[tweetCategoryResponse.value];
     const randomTweet = tweets[Math.floor(Math.random() * tweets.length)];
     const tweetToSend = randomTweet.trim();
     console.log(
@@ -45,10 +45,18 @@ ${tweetToSend}
 `
     );
 
-    try {
-      // await twitter.v2.tweet(trimmedTweet, {});
-    } catch (error) {
-      console.log(error, { trimmedTweet: tweetToSend });
+    const confirmResponse = await prompts({
+      type: "confirm",
+      name: "value",
+      message: "Are you ready to Tweet?",
+    });
+
+    if (!confirmResponse.value) {
+      try {
+        // await twitter.v2.tweet(trimmedTweet, {});
+      } catch (error) {
+        console.log(error, { trimmedTweet: tweetToSend });
+      }
     }
   }
 })();
