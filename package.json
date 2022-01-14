@@ -1,0 +1,31 @@
+{
+  "name": "my-twitter",
+  "version": "1.0.0",
+  "description": "my-twitter",
+  "main": "index.js",
+  "scripts": {
+    "start": "esno src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RPDeshaies/my-twitter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RPDeshaies/my-twitter/issues"
+  },
+  "homepage": "https://github.com/RPDeshaies/my-twitter#readme",
+  "dependencies": {
+    "dotenv": "^11.0.0",
+    "esno": "^0.14.0",
+    "prompts": "^2.4.2",
+    "twitter-api-v2": "^1.9.1",
+    "typescript": "^4.5.4"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.8",
+    "@types/prompts": "^2.0.14"
+  }
+}
