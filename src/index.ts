@@ -36,14 +36,19 @@ const twitter = twitterClient.readWrite;
 
     const tweets = Tweets[response.value];
     const randomTweet = tweets[Math.floor(Math.random() * tweets.length)];
-    const trimmedTweet = randomTweet.trim();
+    const tweetToSend = randomTweet.trim();
     console.log(
       `💭 Tweeting: \n
 ---
-${trimmedTweet}
+${tweetToSend}
 ---
 `
     );
-    // await twitter.v2.tweet(trimmedTweet, {});
+
+    try {
+      // await twitter.v2.tweet(trimmedTweet, {});
+    } catch (error) {
+      console.log(error, { trimmedTweet: tweetToSend });
+    }
   }
 })();
