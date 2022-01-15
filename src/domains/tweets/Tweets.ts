@@ -10,7 +10,7 @@ Check it out below! https://fari-rpgs.itch.io/charge-rpg
     `
 If you're familiar with Blades in the Dark, picking up Charge RPG is going to be a lot easier than you think.
 
-Charge is built on the same core as Blades in the Dark, but adds new features and mechanics to make the player want to engage in the game more.
+Charge is built on the same core FitD, but with a new twist
 
 It's free to play, and it's open source! https://fari-rpgs.itch.io/charge-rpg
 `,
@@ -58,9 +58,9 @@ Download now! https://fari-rpgs.itch.io/charge-srd
 `,
 
     `
-Featured by Dice Breaker as one of the best tabletop RPG systems to hack into a custom game, Charge is a great way to get started in making your own tabletop RPG.
+Featured by Dice Breaker as one of the best tabletop RPG systems to hack into a custom game, Charge is the SRD you are looking for.
 
-It takes a new spin on mechanics you're already comfortable with, and it's "fill-in-the-gaps" format makes it super easy to get started in making your own game.
+It's "fill-in-the-gaps" format makes it super easy to get started in making your own game.
 
 Read for free! https://fari-rpgs.itch.io/charge-srd
 `,
@@ -120,19 +120,39 @@ Join the jam now! https://itch.io/jam/charge-creation-jam
     `
 The Charge Party Extra by @therabidbanana is a fantastic addition to the core game.
 
-It uses a Party Sheet to help track the assets the group has and how the world seems them.
+It uses a Party Sheet to track assets, allies, and enemies.
 
-Using this makes it SO MUCH EASIER to define the position/effect of action rolls.
+This makes it SO MUCH EASIER to define the position/effect of action rolls.
 
 https://therabidbanana.itch.io/charge-party-extra
     `,
     `
 If you're looking for an additional way to represent dangerous threats in your Charge game, checkout the Threat Level extra by Othelarian.
 
-It uses a new and interesting mechanic that acts like an opposed dice pool and hinders the player's efforts.
+It uses an opposed dice pool to hinders the player's efforts.
 
 https://othelarian.itch.io/charge-extra-threat-level
     `,
   ],
   ["Powered By Charge"]: [],
 };
+
+function validateAllTweetsLength() {
+  const keys = Object.keys(Tweets);
+  for (let i = 0; i < keys.length; i++) {
+    const key = keys[i];
+    const tweets = Tweets[key];
+    tweets.forEach((tweet) => {
+      if (tweet.length > 280) {
+        const error = {
+          message: `Tweet "${key}" is too long!`,
+          length: tweet.length,
+          tweet,
+        };
+        throw error;
+      }
+    });
+  }
+}
+
+validateAllTweetsLength();
