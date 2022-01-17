@@ -18,6 +18,8 @@ const twitter = twitterClient.readWrite;
 
 (async () => {
   while (true) {
+    // process.stdout.write("\x1Bc");
+
     const categories = Object.keys(Tweets).map((key) => ({
       title: key + " (" + Tweets[key].length + ")",
       value: key,

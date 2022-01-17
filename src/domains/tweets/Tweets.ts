@@ -30,7 +30,7 @@ Did you know I have a newsletter? Yeah that's right!
 
 Subscribe now to get notified when I release a new game!
 
-https://www.getrevue.co/profile/fari-rpgs
+https://fari-rpgs.com/newsletter
     `,
 
     `
@@ -38,14 +38,21 @@ I'm working on a new project and its going to be AMAZING!
 
 Subscribe to my newsletter to get notified when it's out!
 
-https://www.getrevue.co/profile/fari-rpgs
+https://fari-rpgs.com/newsletter
     `,
     `
 If you follow me on itch, you should also subscribe to my newsletter!
 
 You'll be sure to never miss when I release new games!
 
-https://www.getrevue.co/profile/fari-rpgs
+https://fari-rpgs.com/newsletter
+`,
+    `
+HEY! I have a newsletter!
+
+Subscribe now to get notified when I release all the cool stuff I'm working on!
+
+https://fari-rpgs.com/newsletter
 `,
   ],
   ["Charge SRD"]: [
@@ -64,13 +71,46 @@ It's "fill-in-the-gaps" format makes it super easy to get started in making your
 
 Read for free! https://fari-rpgs.itch.io/charge-srd
 `,
+
+    `
+If you want to make your own TTRPG, you should check-out the Charge SRD.
+
+Take its core and fill-in the gaps to make the game you've always wanted.
+
+Read for free! https://fari-rpgs.itch.io/charge-srd
+`,
+    `
+Tons of people are currently making really cool stuff using the Charge SRD.
+
+Y'all have no idea how this makes me happy.
+
+If you also want to make an impactful game with forward momentum, check it out below! https://fari-rpgs.itch.io/charge-srd
+`,
   ],
-  ["HOPES & DREAMS"]: [],
+  ["HOPES & DREAMS"]: [
+    `
+War is brewing. Tension is rising. Everyone knows it, but the older folks aren’t doing anything about it. 
+
+Living in the Wasteland is not living, it’s surviving. 
+
+We’ve got to do something for our future, because nobody else will.
+
+https://fari-rpgs.itch.io/hopes-and-dreams
+`,
+
+    `
+HOPES & DREAMS is a rules-lite ttrpg where you play as young adults who want to make a difference in a world that won’t let them. 
+
+Government officials are corrupted, and the future looks bleak. 
+
+It's time to do something, Dreamer! https://fari-rpgs.itch.io/hopes-and-dreams
+`,
+  ],
   ["The Path Of The Wolves"]: [
     `
 If you love the #Witcher universe, you should check out The Path of the Wolves!
 
-It's hack of Charge RPG that's ready to slay monsters either using silver or steel! 
+It's hack of Charge RPG that's ready to use so you can slay monsters either silver or steel! 
 
 Available for free! https://fari-rpgs.itch.io/the-path-of-the-wolves
 `,
@@ -85,6 +125,13 @@ Check it out, it's free! https://fari-rpgs.itch.io/the-path-of-the-wolves
 Silver for monster, steel for men.
 
 Play as a Wolf and slay some monsters in this #Witcher hack of Charge RPG.
+
+Download for free! https://fari-rpgs.itch.io/the-path-of-the-wolves
+`,
+    `
+The #Witcher universe is so cool.
+
+If you want to play a TTRPG game in this super interesting world, check out The Path of the Wolves!
 
 Download for free! https://fari-rpgs.itch.io/the-path-of-the-wolves
 `,
@@ -115,6 +162,14 @@ You too can make a game using the super simple #ChargeSRD
 
 Join the jam now! https://itch.io/jam/charge-creation-jam
 `,
+
+    `
+We're currently looking for more designers to join the #ChargeCreationJam.
+
+It's simple: make something either powered or compatible with Charge and publish it on itch!
+
+Join 40+ designers and submit your game! https://itch.io/jam/charge-creation-jam
+`,
   ],
   ["Compatible With Charge"]: [
     `
@@ -135,6 +190,13 @@ https://othelarian.itch.io/charge-extra-threat-level
     `,
   ],
   ["Powered By Charge"]: [],
+  ["Patreon"]: [
+    `
+Patreon supporters at any level get access all my games for free.
+
+Become a Patron for starting at 1$ per month! https://fari-rpgs.com/patreon
+`,
+  ],
 };
 
 function validateAllTweetsLength() {
