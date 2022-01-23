@@ -1,29 +1,16 @@
 import prompts from "prompts";
-require("dotenv").config();
-
-import TwitterApi from "twitter-api-v2";
-import { Tweets } from "./domains/tweets/Tweets";
-
-const twitterClient = new TwitterApi({
-  // Api Key
-  appKey: process.env.TWITTER_API_KEY as any,
-  // Api Secret
-  appSecret: process.env.TWITTER_API_SECRET as any,
-  // Access Token
-  accessToken: process.env.TWITTER_ACCESS_TOKEN as any,
-  // Access Token Secret
-  accessSecret: process.env.TWITTER_ACCESS_TOKEN_SECRET as any,
-});
-const twitter = twitterClient.readWrite;
+import { TweetDirectory } from "./domains/tweets/TweetDirectory";
+import { twitter } from "./services/twitterClient/twitterClient";
 
 (async () => {
   while (true) {
     // process.stdout.write("\x1Bc");
-
-    const categories = Object.keys(Tweets).map((key) => ({
-      title: key + " (" + Tweets[key].length + ")",
+    const tweetDirectory = TweetDirectory.get();
+    const categories = Object.keys(tweetDirectory).map((key) => ({
+      title: key + " (" + tweetDirectory[key].length + ")",
       value: key,
     }));
+
     const tweetCategoryResponse = await prompts({
       type: "select",
       name: "value",
@@ -35,7 +22,7 @@ const twitter = twitterClient.readWrite;
       return;
     }
 
-    const tweets = Tweets[tweetCategoryResponse.value];
+    const tweets = tweetDirectory[tweetCategoryResponse.value];
     const randomTweet = tweets[Math.floor(Math.random() * tweets.length)];
     const tweetToSend = randomTweet.trim();
     console.log(
