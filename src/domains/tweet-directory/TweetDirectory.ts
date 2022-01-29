@@ -7,7 +7,7 @@ export const TweetDirectory = {
     const files = fs.readdirSync(path.join(__dirname, "../../../data/tweets"));
 
     files.forEach((file) => {
-      const categoryName = file.split(".txt")[0];
+      const categoryName = file.split(".md")[0];
 
       const tweetsInCategory = fs
         .readFileSync(
@@ -20,6 +20,7 @@ export const TweetDirectory = {
           if (tweet.length > 280) {
             throw {
               message: "Tweet is too long",
+              length: tweet.length,
               tweet,
             };
           }
