@@ -25,6 +25,35 @@ export const MyTwitter = {
       await tweetFromCategory(tweetCategoryResponse.value);
     }
   },
+  async sendRandomTweetEvery(delay: number) {
+    setInterval(async () => {
+      const allCategories = Object.keys(tweetDirectory);
+      const allTweets = allCategories.reduce((acc, category) => {
+        return [...acc, ...tweetDirectory[category]];
+      }, [] as Array<string>);
+
+      const randomTweet =
+        allTweets[Math.floor(Math.random() * allTweets.length)];
+
+      try {
+        console.log(
+          `💭 Tweeting: \n
+---------
+${randomTweet}
+---------
+    `
+        );
+        const tweetResult = await twitter.v2.tweet(randomTweet, {});
+
+        console.log(
+          `✅ Tweeted: https://twitter.com/RPDeshaies/status/${tweetResult.data.id}`
+        );
+      } catch (error) {
+        console.log(`❌ Error: }`, { trimmedTweet: randomTweet });
+        console.error(error);
+      }
+    }, delay);
+  },
 };
 
 async function tweetFromCategory(category: string) {
@@ -32,11 +61,10 @@ async function tweetFromCategory(category: string) {
     process.stdout.write("\x1Bc");
     const tweets = tweetDirectory[category];
     const randomTweet = tweets[Math.floor(Math.random() * tweets.length)];
-    const tweetToSend = randomTweet.trim();
     console.log(
-      `💭 Tweeting ${tweetToSend.length} characters: \n
+      `💭 Tweeting: \n
 ---------
-${tweetToSend}
+${randomTweet}
 ---------
 `
     );
@@ -60,13 +88,13 @@ ${tweetToSend}
     }
     if (confirmResponse.value === "yes") {
       try {
-        const tweetResult = await twitter.v2.tweet(tweetToSend, {});
+        const tweetResult = await twitter.v2.tweet(randomTweet, {});
 
         console.log(
           `✅ Tweeted: https://twitter.com/RPDeshaies/status/${tweetResult.data.id}`
         );
       } catch (error) {
-        console.log(`❌ Error: }`, { trimmedTweet: tweetToSend });
+        console.log(`❌ Error: }`, { trimmedTweet: randomTweet });
         console.error(error);
       }
       return;
