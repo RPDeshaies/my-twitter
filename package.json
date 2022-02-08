@@ -4,8 +4,8 @@
   "description": "my-twitter",
   "main": "index.js",
   "scripts": {
-    "start": "esno src/index.ts",
-    "interactive": "esno src/index.ts --interactive",
+    "start": "esno src/index.ts --interactive",
+    "timer": "esno src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -23,7 +23,7 @@ Inspired by Arcane, The Name of the Wind, Hunger Games, and Overwatch, HOPES & D
 - Vibrant and stylish character + GM sheets.
 - and more!
 
-https://hopesanddreams.farirpgs.com/
+https://fari-rpgs.itch.io/hopes-and-dreams
 
 ---
 
@@ -31,7 +31,7 @@ Government officials are corrupted, your leaders are broken, and the future look
 
 It's time to ignite a revolution with your HOPES to make your DREAMS come true.
 
-https://hopesanddreams.farirpgs.com/
+https://fari-rpgs.itch.io/hopes-and-dreams
 
 --- 
 
@@ -43,4 +43,4 @@ What are you going to play ?
 - The manipulative SUIT
 - The resourceful GEARHEAD
 
-https://hopesanddreams.farirpgs.com/
+https://fari-rpgs.itch.io/hopes-and-dreams
