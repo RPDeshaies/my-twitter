@@ -1,4 +1,5 @@
 import { MyTwitter } from "./domains/my-twitter/MyTwitter";
+import { IFolders } from "./domains/tweet-directory/TweetDirectory";
 
 (async () => {
   try {
@@ -7,7 +8,11 @@ import { MyTwitter } from "./domains/my-twitter/MyTwitter";
     if (args.includes("--interactive")) {
       await MyTwitter.promptCategories();
     } else {
-      await MyTwitter.sendRandomTweetEvery(210 /* minutes */ * 60 * 1000);
+      const folder: IFolders = args.includes("--focus") ? "focus" : "tweets";
+      await MyTwitter.sendRandomTweetEvery({
+        folder: folder,
+        delay: 210 /* minutes */ * 60 * 1000,
+      });
     }
   } catch (error) {
     console.error(error);

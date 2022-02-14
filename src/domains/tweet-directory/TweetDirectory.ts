@@ -1,10 +1,14 @@
 import fs from "fs";
 import path from "path";
 
+export type IFolders = "tweets" | "focus";
+
 export const TweetDirectory = {
-  get() {
+  getAll(props: { folder: IFolders }) {
     const tweetsDirectory: Record<string, Array<string>> = {};
-    const files = fs.readdirSync(path.join(__dirname, "../../../data/tweets"));
+    const files = fs.readdirSync(
+      path.join(__dirname, `../../../data/${props.folder}`)
+    );
 
     files.forEach((file) => {
       const categoryName = file.split(".md")[0];

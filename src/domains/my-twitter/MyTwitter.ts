@@ -1,13 +1,15 @@
 import prompts from "prompts";
-import { TweetDirectory } from "../tweet-directory/TweetDirectory";
+import { IFolders, TweetDirectory } from "../tweet-directory/TweetDirectory";
 import { twitter } from "../../services/twitterClient/twitterClient";
-
-const tweetDirectory = TweetDirectory.get();
 
 export const MyTwitter = {
   async promptCategories() {
-    const categories = Object.keys(tweetDirectory).map((key) => ({
-      title: key + " (" + tweetDirectory[key].length + ")",
+    const tweetDirectories = TweetDirectory.getAll({
+      folder: "tweets",
+    });
+
+    const categories = Object.keys(tweetDirectories).map((key) => ({
+      title: key + " (" + tweetDirectories[key].length + ")",
       value: key,
     }));
     while (true) {
@@ -22,18 +24,39 @@ export const MyTwitter = {
         break;
       }
 
-      await tweetFromCategory(tweetCategoryResponse.value);
+      await tweetFromCategory(tweetDirectories, tweetCategoryResponse.value);
     }
   },
-  async sendRandomTweetEvery(delay: number) {
-    setInterval(async () => {
-      const allCategories = Object.keys(tweetDirectory);
-      const allTweets = allCategories.reduce((acc, category) => {
-        return [...acc, ...tweetDirectory[category]];
-      }, [] as Array<string>);
+  async sendRandomTweetEvery(props: { folder: IFolders; delay: number }) {
+    const tweetDirectories = TweetDirectory.getAll({
+      folder: props.folder,
+    });
+    console.log(
+      `🕐 Sending tweet from ${props.folder} every ${
+        props.delay / 60 / 60 / 1000
+      } hours`
+    );
 
-      const randomTweet =
-        allTweets[Math.floor(Math.random() * allTweets.length)];
+    const allCategories = Object.keys(tweetDirectories);
+    const allTweets = allCategories.reduce((acc, category) => {
+      return [...acc, ...tweetDirectories[category]];
+    }, [] as Array<string>);
+    const allTweetsInRandomOrder = [...allTweets].sort(
+      () => 0.5 - Math.random()
+    );
+    const tweetsToSend = [...allTweetsInRandomOrder];
+
+    await doIt();
+
+    setInterval(async () => {
+      await doIt();
+    }, props.delay);
+
+    async function doIt() {
+      if (tweetsToSend.length === 0) {
+        tweetsToSend.push(...allTweetsInRandomOrder);
+      }
+      const randomTweet = allTweetsInRandomOrder.pop() as string;
 
       try {
         console.log(
@@ -41,7 +64,7 @@ export const MyTwitter = {
 ---------
 ${randomTweet}
 ---------
-    `
+  `
         );
         const tweetResult = await twitter.v2.tweet(randomTweet, {});
 
@@ -52,14 +75,17 @@ ${randomTweet}
         console.log(`❌ Error: }`, { trimmedTweet: randomTweet });
         console.error(error);
       }
-    }, delay);
+    }
   },
 };
 
-async function tweetFromCategory(category: string) {
+async function tweetFromCategory(
+  tweetDirectories: Record<string, Array<string>>,
+  category: string
+) {
   while (true) {
     process.stdout.write("\x1Bc");
-    const tweets = tweetDirectory[category];
+    const tweets = tweetDirectories[category];
     const randomTweet = tweets[Math.floor(Math.random() * tweets.length)];
     console.log(
       `💭 Tweeting: \n
