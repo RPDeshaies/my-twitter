@@ -11,7 +11,8 @@ import { IFolders } from "./domains/tweet-directory/TweetDirectory";
       const folder: IFolders = args.includes("--focus") ? "focus" : "tweets";
       await MyTwitter.sendRandomTweetEvery({
         folder: folder,
-        delay: 210 /* minutes */ * 60 * 1000,
+        delay: 23 /* hours*/ * 60 * 60 * 1000,
+        // delay: 210 /* minutes */ * 60 * 1000,
       });
     }
   } catch (error) {

@@ -52,3 +52,11 @@ HOPES & DREAMS is out in early access!
 Play in this original dystopian industrial fantasy setting where you and your friends haven’t abandoned HOPE yet. You still have DREAMS of what life could be, and are willing to fight for it.
 
 https://fari-rpgs.itch.io/hopes-and-dreams
+
+---
+
+Dystopian industrial fantasy. You play as Dreamers who are willing to fight for a better future.
+
+Got your attention? Then help us fund this astonishing TTRPG on itch!
+
+https://fari-rpgs.itch.io/hopes-and-dreams
